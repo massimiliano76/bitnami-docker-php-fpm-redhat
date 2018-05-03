@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/bitnami/bitnami-docker-php-fpm/tree/master.svg?style=shield)](https://circleci.com/gh/bitnami/bitnami-docker-php-fpm/tree/master)
-
 # What is PHP-FPM?
 
 > PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation with some additional features useful for sites of any size, especially busier sites.
@@ -9,13 +7,13 @@
 # TL;DR;
 
 ```bash
-$ docker run -it --name phpfpm -v /path/to/app:/app bitnami/php-fpm
+$ docker run -it --name phpfpm -v /path/to/app:/app bitnami/php-fpm-redhat
 ```
 
 ## Docker Compose
 
 ```bash
-$ curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-php-fpm/master/docker-compose.yml > docker-compose.yml
+$ curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-php-fpm-redhat/master/docker-compose.yml > docker-compose.yml
 $ docker-compose up -d
 ```
 
@@ -25,36 +23,15 @@ $ docker-compose up -d
 * With Bitnami images the latest bug fixes and features are available as soon as possible.
 * Bitnami containers, virtual machines and cloud images use the same components and configuration approach - making it easy to switch between formats based on your project needs.
 * Bitnami images are built on CircleCI and automatically pushed to the Docker Hub.
-* All our images are based on [minideb](https://github.com/bitnami/minideb) a minimalist Debian based container image which gives you a small base container image and the familiarity of a leading linux distribution.
 
 # Supported tags and respective `Dockerfile` links
 
- - [`7.2`, `7.2.4-r4` (7.2/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.2.4-r4/7.2/Dockerfile), [`7.2-prod`, `7.2.4-r4-prod` (7.2/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.2.4-r4/7.2/prod/Dockerfile)
- - [`7.1`, `7.1.16-r4`, `latest` (7.1/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.1.16-r4/7.1/Dockerfile), [`7.1-prod`, `7.1.16-r4-prod` (7.1/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.1.16-r4/7.1/prod/Dockerfile)
- - [`7.0`, `7.0.29-r4` (7.0/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.0.29-r4/7.0/Dockerfile), [`7.0-prod`, `7.0.29-r4-prod` (7.0/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.0.29-r4/7.0/prod/Dockerfile)
- - [`5.6`, `5.6.35-r4` (5.6/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/5.6.35-r4/5.6/Dockerfile), [`5.6-prod`, `5.6.35-r4-prod` (5.6/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/5.6.35-r4/5.6/prod/Dockerfile)
+ - [`7.2`, `7.2.4-r4` (7.2/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/blob/7.2.4-r4/7.2/Dockerfile), [`7.2-prod`, `7.2.4-r4-prod` (7.2/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.2.4-r4/7.2/prod/Dockerfile)
+ - [`7.1`, `7.1.16-r4`, `latest` (7.1/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/blob/7.1.16-r4/7.1/Dockerfile), [`7.1-prod`, `7.1.16-r4-prod` (7.1/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.1.16-r4/7.1/prod/Dockerfile)
+ - [`7.0`, `7.0.29-r4` (7.0/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/blob/7.0.29-r4/7.0/Dockerfile), [`7.0-prod`, `7.0.29-r4-prod` (7.0/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/7.0.29-r4/7.0/prod/Dockerfile)
+ - [`5.6`, `5.6.35-r4` (5.6/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/blob/5.6.35-r4/5.6/Dockerfile), [`5.6-prod`, `5.6.35-r4-prod` (5.6/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-php-fpm/blob/5.6.35-r4/5.6/prod/Dockerfile)
 
-Subscribe to project updates by watching the [bitnami/php-fpm GitHub repo](https://github.com/bitnami/bitnami-docker-php-fpm).
-
-# Get this image
-
-The recommended way to get the Bitnami PHP-FPM Docker Image is to pull the prebuilt image from the [Docker Hub Registry](https://hub.docker.com/r/bitnami/php-fpm).
-
-```bash
-$ docker pull bitnami/php-fpm:latest
-```
-
-To use a specific version, you can pull a versioned tag. You can view the [list of available versions](https://hub.docker.com/r/bitnami/php-fpm/tags/) in the Docker Hub Registry.
-
-```bash
-$ docker pull bitnami/php-fpm:[TAG]
-```
-
-If you wish, you can also build the image yourself.
-
-```bash
-$ docker build -t bitnami/php-fpm https://github.com/bitnami/bitnami-docker-php-fpm.git
-```
+Subscribe to project updates by watching the [bitnami/php-fpm GitHub repo](https://github.com/bitnami/bitnami-docker-php-fpm-redhat).
 
 # Connecting to other containers
 
@@ -113,10 +90,11 @@ Copy the virtual host above, saving the file somewhere on your host. We will mou
 Docker's linking system uses container ids or names to reference containers. We can explicitly specify a name for our PHP-FPM server to make it easier to connect to other containers.
 
 ```bash
+$ docker build -t php-fpm-redhat .
 $ docker run -it --name phpfpm \
   --network app-tier
   -v /path/to/app:/app \
-  bitnami/php-fpm
+  php-fpm-redhat
 ```
 
 or using Docker Compose:
@@ -124,7 +102,9 @@ or using Docker Compose:
 ```yaml
 services:
   phpfpm:
-    image: 'bitnami/php-fpm:latest'
+    build:
+      context: ./7.2
+      dockerfile: Dockerfile
     networks:
       - app-tier
     volumes:
@@ -166,7 +146,7 @@ Since this image bundles a PHP runtime, you may want to make use of PHP outside 
 PHP provides a REPL where you can interactively test and try things out in PHP.
 
 ```bash
-$ docker run -it --name phpfpm bitnami/php-fpm php -a
+$ docker run -it --name phpfpm php-fpm-redhat php -a
 ```
 
 **Further Reading:**
@@ -178,7 +158,7 @@ $ docker run -it --name phpfpm bitnami/php-fpm php -a
 The default work directory for the PHP-FPM image is `/app`. You can mount a folder from your host here that includes your PHP script, and run it normally using the `php` command.
 
 ```bash
-$ docker run -it --name php-fpm -v /path/to/app:/app bitnami/php-fpm \
+$ docker run -it --name php-fpm -v /path/to/app:/app php-fpm-redhat \
   php script.php
 ```
 
@@ -193,7 +173,7 @@ You can mount a custom config file from your host to edit the default configurat
 Run the PHP-FPM image, mounting a file from your host.
 
 ```bash
-$ docker run --name phpfpm -v /path/to/php-fpm.conf:/opt/bitnami/php/etc/php-fpm.conf bitnami/php-fpm
+$ docker run --name phpfpm -v /path/to/php-fpm.conf:/opt/bitnami/php/etc/php-fpm.conf php-fpm-redhat
 ```
 
 or using Docker Compose:
@@ -203,7 +183,9 @@ version: '2'
 
 services:
   phpfpm:
-    image: 'bitnami/php-fpm:latest'
+    build:
+      context: ./7.2
+      dockerfile: Dockerfile
     ports:
       - '9000:9000'
     volumes:
@@ -251,7 +233,7 @@ max_file_uploads = 30M
 2. Run the php-fpm container mounting the custom file.
 
 ```bash
-$ docker run -it -v /path/to/custom.ini:/opt/bitnami/php/etc/conf.d/custom.ini bitnami/php-fpm php -i | grep max_file_uploads
+$ docker run -it -v /path/to/custom.ini:/opt/bitnami/php/etc/conf.d/custom.ini php-fpm-redhat php -i | grep max_file_uploads
 
 ```
 
@@ -284,24 +266,24 @@ Bitnami provides up-to-date versions of PHP-FPM, including security patches, soo
 ### Step 1: Get the updated image
 
 ```bash
-$ docker pull bitnami/php-fpm:latest
+$ git pull
+$ docker build -t php-fpm-redhat .
 ```
 
-or if you're using Docker Compose, update the value of the image property to
-`bitnami/php-fpm:latest`.
+or if you're using Docker Compose, just `git pull`
 
 ### Step 2: Stop and backup the currently running container
 
 Stop the currently running container using the command
 
 ```bash
-$ docker stop php-fpm
+$ docker stop phpfpm
 ```
 
 or using Docker Compose:
 
 ```bash
-$ docker-compose stop php-fpm
+$ docker-compose stop phpfpm
 ```
 
 Next, take a snapshot of the persistent volume `/path/to/php-fpm-persistence` using:
@@ -329,7 +311,7 @@ $ docker-compose rm -v phpfpm
 Re-create your container from the new image.
 
 ```bash
-$ docker run --name phpfpm bitnami/php-fpm:latest
+$ docker run --name phpfpm php-fpm-redhat
 ```
 
 or using Docker Compose:
@@ -340,10 +322,8 @@ $ docker-compose start phpfpm
 
 # Useful Links
 
-- [Create An AMP Development Environment With Bitnami Containers
-](https://docs.bitnami.com/containers/how-to/create-amp-environment-containers/)
-- [Create An EMP Development Environment With Bitnami Containers
-](https://docs.bitnami.com/containers/how-to/create-emp-environment-containers/)
+- [Create An AMP Development Environment With Bitnami Containers](https://docs.bitnami.com/containers/how-to/create-amp-environment-containers/)
+- [Create An EMP Development Environment With Bitnami Containers](https://docs.bitnami.com/containers/how-to/create-emp-environment-containers/)
 
 # Notable Changes
 
@@ -370,11 +350,11 @@ $ docker-compose start phpfpm
 
 # Contributing
 
-We'd love for you to contribute to this Docker image. You can request new features by creating an [issue](https://github.com/bitnami/bitnami-docker-php-fpm/issues), or submit a [pull request](https://github.com/bitnami/bitnami-docker-php-fpm/pulls) with your contribution.
+We'd love for you to contribute to this Docker image. You can request new features by creating an [issue](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/issues), or submit a [pull request](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/pulls) with your contribution.
 
 # Issues
 
-If you encountered a problem running this container, you can file an [issue](https://github.com/bitnami/bitnami-docker-php-fpm/issues). For us to provide better support, be sure to include the following information in your issue:
+If you encountered a problem running this container, you can file an [issue](https://github.com/bitnami/bitnami-docker-php-fpm-redhat/issues). For us to provide better support, be sure to include the following information in your issue:
 
 - Host OS and version
 - Docker version (`docker version`)
