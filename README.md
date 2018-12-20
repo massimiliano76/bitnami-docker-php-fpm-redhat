@@ -259,6 +259,8 @@ $ docker-compose logs phpfpm
 
 # Maintenance
 
+**NOTE: PHP 7.0.x release series has reached end of life. We strongly recommend using 7.1.x series or higher instead.**
+
 ## Upgrade this image
 
 Bitnami provides up-to-date versions of PHP-FPM, including security patches, soon after they are made upstream. We recommend that you follow these steps to upgrade your container.
